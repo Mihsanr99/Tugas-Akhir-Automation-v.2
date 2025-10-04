@@ -1,0 +1,355 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-04T03:31:57.699Z",
+    "end": "2025-10-04T03:32:37.757Z",
+    "duration": 40058,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e61a043f-ea31-4dd4-ab94-9768129d2cf1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ForgotPassword.cy.js",
+      "file": "cypress\\e2e\\ForgotPassword.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "63f15ed1-4769-484a-8b58-79f40827dcd2",
+          "title": "Forgot Password Functionality Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "fad17795-e8a1-4ac6-a018-335ad785f7eb",
+              "title": "Page Display Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC001: Should display forgot password page correctly",
+                  "fullTitle": "Forgot Password Functionality Tests Page Display Tests TC001: Should display forgot password page correctly",
+                  "timedOut": null,
+                  "duration": 3768,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "forgotPasswordPage.verifyForgotPasswordPageVisible();\nforgotPasswordPage.verifyPageTitle('Reset Password');",
+                  "err": {},
+                  "uuid": "0963757d-8ca2-4632-9dab-2a6b075e4ea4",
+                  "parentUUID": "fad17795-e8a1-4ac6-a018-335ad785f7eb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC002: Should display all form elements",
+                  "fullTitle": "Forgot Password Functionality Tests Page Display Tests TC002: Should display all form elements",
+                  "timedOut": null,
+                  "duration": 1536,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "forgotPasswordPage.elements.usernameInput().should('be.visible');\ncy.contains('button', 'Reset Password').should('be.visible');\ncy.contains('button', 'Cancel').should('be.visible');",
+                  "err": {},
+                  "uuid": "583ae445-d987-40f9-b315-eee3c8499767",
+                  "parentUUID": "fad17795-e8a1-4ac6-a018-335ad785f7eb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0963757d-8ca2-4632-9dab-2a6b075e4ea4",
+                "583ae445-d987-40f9-b315-eee3c8499767"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5304,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "1751b4fc-ae13-4609-8bb9-86b9b6168e05",
+              "title": "Form Submission Tests with Intercept",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC003: Should submit reset password form with valid username",
+                  "fullTitle": "Forgot Password Functionality Tests Form Submission Tests with Intercept TC003: Should submit reset password form with valid username",
+                  "timedOut": null,
+                  "duration": 5759,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('POST', testData.apiEndpoints.resetPassword).as('resetRequest');\nforgotPasswordPage.enterUsername(testData.forgotPassword.validUsername);\nforgotPasswordPage.clickReset();\n// Tunggu request\ncy.wait('@resetRequest', {\n  timeout: 10000\n}).its('response.statusCode').should('be.oneOf', [200, 302]);\n// Tidak ada error message\ncy.get('.oxd-input-field-error-message').should('not.exist');\n// Pastikan diarahkan ke halaman \"sendPasswordReset\"\ncy.url().should('include', 'sendPasswordReset');\n// Verifikasi pesan sukses\nforgotPasswordPage.verifySuccessMessage();",
+                  "err": {},
+                  "uuid": "114b307f-70bb-4525-891b-5ecc5386a6bb",
+                  "parentUUID": "1751b4fc-ae13-4609-8bb9-86b9b6168e05",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC004: Should verify reset password process via API (if intercepted) and UI",
+                  "fullTitle": "Forgot Password Functionality Tests Form Submission Tests with Intercept TC004: Should verify reset password process via API (if intercepted) and UI",
+                  "timedOut": null,
+                  "duration": 5706,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('POST', testData.apiEndpoints.resetPassword).as('resetAPI');\nforgotPasswordPage.enterUsername(testData.forgotPassword.validUsername);\nforgotPasswordPage.clickReset();\ncy.wait('@resetAPI', {\n  timeout: 10000\n}).then(interception => {\n  if (interception) {\n    expect(interception.response.statusCode).to.be.oneOf([200, 302]);\n  } else {\n    cy.log(' No API call detected, relying on redirect check only');\n  }\n});\ncy.url().should('include', 'sendPasswordReset');\nforgotPasswordPage.verifySuccessMessage();",
+                  "err": {},
+                  "uuid": "1bf71b9c-e75a-4dd8-ac8d-e2bd07967b36",
+                  "parentUUID": "1751b4fc-ae13-4609-8bb9-86b9b6168e05",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC005: Should show error when username is empty",
+                  "fullTitle": "Forgot Password Functionality Tests Form Submission Tests with Intercept TC005: Should show error when username is empty",
+                  "timedOut": null,
+                  "duration": 2620,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "forgotPasswordPage.clickReset();\ncy.wait(1000);\ncy.contains('Required').should('be.visible');",
+                  "err": {},
+                  "uuid": "b5f68d2e-2cf1-4321-877a-b8923f310c5e",
+                  "parentUUID": "1751b4fc-ae13-4609-8bb9-86b9b6168e05",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC006: Should not call API when username is empty",
+                  "fullTitle": "Forgot Password Functionality Tests Form Submission Tests with Intercept TC006: Should not call API when username is empty",
+                  "timedOut": null,
+                  "duration": 2633,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('POST', '**/auth/requestResetPassword').as('resetAPI');\nforgotPasswordPage.clickReset();\ncy.wait(1000);\n// Error should appear\ncy.contains('Required').should('be.visible');\n// API should not be called\ncy.get('@resetAPI.all').should('have.length', 0);",
+                  "err": {},
+                  "uuid": "168a3b16-ab2e-4a72-893a-8b91707db3fb",
+                  "parentUUID": "1751b4fc-ae13-4609-8bb9-86b9b6168e05",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "114b307f-70bb-4525-891b-5ecc5386a6bb",
+                "1bf71b9c-e75a-4dd8-ac8d-e2bd07967b36",
+                "b5f68d2e-2cf1-4321-877a-b8923f310c5e",
+                "168a3b16-ab2e-4a72-893a-8b91707db3fb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 16718,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "d92249f1-6f5f-48bc-84cc-c8b505862f8c",
+              "title": "Navigation Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC007: Should navigate back to login using cancel button",
+                  "fullTitle": "Forgot Password Functionality Tests Navigation Tests TC007: Should navigate back to login using cancel button",
+                  "timedOut": null,
+                  "duration": 3031,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "forgotPasswordPage.clickCancel();\ncy.wait(1000);\ncy.url().should('include', 'auth/login');\nloginPage.verifyLoginPageVisible();",
+                  "err": {},
+                  "uuid": "4039e5c3-ea81-4ca5-b50f-bd4e95b7d7ac",
+                  "parentUUID": "d92249f1-6f5f-48bc-84cc-c8b505862f8c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC008: Should navigate from login page to forgot password",
+                  "fullTitle": "Forgot Password Functionality Tests Navigation Tests TC008: Should navigate from login page to forgot password",
+                  "timedOut": null,
+                  "duration": 4295,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "loginPage.visit();\nloginPage.clickForgotPassword();\ncy.wait(1000);\ncy.url().should('include', 'requestPasswordResetCode');\nforgotPasswordPage.verifyForgotPasswordPageVisible();",
+                  "err": {},
+                  "uuid": "0aa23658-ba56-4959-875b-e182187e41ca",
+                  "parentUUID": "d92249f1-6f5f-48bc-84cc-c8b505862f8c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "4039e5c3-ea81-4ca5-b50f-bd4e95b7d7ac",
+                "0aa23658-ba56-4959-875b-e182187e41ca"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7326,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "77d402b6-12a5-4090-abcd-cffa1f9c56c6",
+              "title": "Form Interaction Tests with POM",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC009: Should clear username field and re-enter",
+                  "fullTitle": "Forgot Password Functionality Tests Form Interaction Tests with POM TC009: Should clear username field and re-enter",
+                  "timedOut": null,
+                  "duration": 2223,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using POM methods\nforgotPasswordPage.enterUsername('FirstUser');\nforgotPasswordPage.elements.usernameInput().should('have.value', 'FirstUser');\nforgotPasswordPage.clearUsername();\nforgotPasswordPage.elements.usernameInput().should('have.value', '');\nforgotPasswordPage.enterUsername('SecondUser');\nforgotPasswordPage.elements.usernameInput().should('have.value', 'SecondUser');",
+                  "err": {},
+                  "uuid": "da965010-5c8a-404c-aa42-ccc0edef85ed",
+                  "parentUUID": "77d402b6-12a5-4090-abcd-cffa1f9c56c6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC010: Should verify form state after navigation",
+                  "fullTitle": "Forgot Password Functionality Tests Form Interaction Tests with POM TC010: Should verify form state after navigation",
+                  "timedOut": null,
+                  "duration": 4590,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "forgotPasswordPage.enterUsername('TestUser');\nforgotPasswordPage.clickCancel();\ncy.wait(1000);\nloginPage.clickForgotPassword();\ncy.wait(1000);\n// Field should be empty after navigation\nforgotPasswordPage.elements.usernameInput().should('have.value', '');",
+                  "err": {},
+                  "uuid": "355ea42e-659d-41bc-b7ab-f958e062fe39",
+                  "parentUUID": "77d402b6-12a5-4090-abcd-cffa1f9c56c6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "da965010-5c8a-404c-aa42-ccc0edef85ed",
+                "355ea42e-659d-41bc-b7ab-f958e062fe39"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6813,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

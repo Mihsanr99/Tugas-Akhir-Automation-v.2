@@ -3,12 +3,18 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Cypress
+# Cypress - biar ga penuh
 cypress/screenshots/
 cypress/videos/
 cypress/results/
-cypress/reports/
 cypress/downloads/
+
+# Kalau semua report di-ignore, nanti ga ke-push
+# Jadi kita hanya ignore folder reports, tapi izinkan mochawesome
+cypress/reports/*
+!cypress/reports/mochawesome/
+!cypress/reports/mochawesome/*.json
+!cypress/reports/mochawesome/*.html
 
 # IDE
 .vscode/
@@ -38,7 +44,7 @@ yarn-error.log*
 dist/
 build/
 
-# Test results
+# Test results (selain mochawesome)
 mochawesome-report/
 test-results/
 coverage/

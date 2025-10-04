@@ -201,6 +201,9 @@ module.exports = {
 
 ## 📈 Reporting
 menggunakan Mochawesome untuk generate HTML report yang detail.
+file report.txt awalnya adalah file report.json, dibuat menjadi report.txt karena file itu merah
+walaupun file report.html tetap berhasil dibuat dan hasil report tetap sesuai. Di ubah ke report.txt, agar
+file tersebut tidak merah dan bisa di push ke git.
 
 ```bash
 # Generate report

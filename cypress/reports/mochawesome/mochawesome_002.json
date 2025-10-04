@@ -1,0 +1,413 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 12,
+    "passes": 12,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-04T03:34:03.765Z",
+    "end": "2025-10-04T03:35:53.678Z",
+    "duration": 109913,
+    "testsRegistered": 12,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0e9e3278-3526-4bad-b082-f16969467f33",
+      "title": "",
+      "fullFile": "cypress\\e2e\\directory.cy.js",
+      "file": "cypress\\e2e\\directory.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8471814b-1cdf-4b59-b10c-02f8eddc9b6f",
+          "title": "Directory Functionality Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "d6a99b56-6753-45f3-a8d3-207580b91e83",
+              "title": "Page Access Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC001: Should access directory page from dashboard",
+                  "fullTitle": "Directory Functionality Tests Page Access Tests TC001: Should access directory page from dashboard",
+                  "timedOut": null,
+                  "duration": 8415,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "directoryPage.verifyDirectoryPageVisible();\ncy.url().should('include', 'directory/viewDirectory');",
+                  "err": {},
+                  "uuid": "f80e54cf-74a2-4866-827b-cd02aeb617e8",
+                  "parentUUID": "d6a99b56-6753-45f3-a8d3-207580b91e83",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC002: Should display correct page title",
+                  "fullTitle": "Directory Functionality Tests Page Access Tests TC002: Should display correct page title",
+                  "timedOut": null,
+                  "duration": 7960,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "directoryPage.verifyPageTitle('Directory');",
+                  "err": {},
+                  "uuid": "f97b261a-c21d-4f74-bd03-8d745143b780",
+                  "parentUUID": "d6a99b56-6753-45f3-a8d3-207580b91e83",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f80e54cf-74a2-4866-827b-cd02aeb617e8",
+                "f97b261a-c21d-4f74-bd03-8d745143b780"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 16375,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "07037b92-0cdd-4106-be4e-ff429b598fc0",
+              "title": "Form Elements Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC003: Should display search form with all fields",
+                  "fullTitle": "Directory Functionality Tests Form Elements Tests TC003: Should display search form with all fields",
+                  "timedOut": null,
+                  "duration": 8504,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "directoryPage.verifySearchFormVisible();\ndirectoryPage.elements.employeeNameInput().should('be.visible');",
+                  "err": {},
+                  "uuid": "d6ec8fd3-8a29-486a-9208-9b8e282980c4",
+                  "parentUUID": "07037b92-0cdd-4106-be4e-ff429b598fc0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC004: Should display all filter fields and buttons",
+                  "fullTitle": "Directory Functionality Tests Form Elements Tests TC004: Should display all filter fields and buttons",
+                  "timedOut": null,
+                  "duration": 6407,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "directoryPage.elements.locationDropdown().should('be.visible');\ndirectoryPage.elements.jobTitleDropdown().should('be.visible');\ncy.contains('button', 'Search').should('be.visible');\ncy.contains('button', 'Reset').should('be.visible');",
+                  "err": {},
+                  "uuid": "1322942b-bc58-4a75-8ff6-bd8ebaafafea",
+                  "parentUUID": "07037b92-0cdd-4106-be4e-ff429b598fc0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d6ec8fd3-8a29-486a-9208-9b8e282980c4",
+                "1322942b-bc58-4a75-8ff6-bd8ebaafafea"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14911,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "311de01e-c229-4c83-99b6-7ee861579dcc",
+              "title": "Search Functionality Tests with POM",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC005: Should type in employee name field using POM",
+                  "fullTitle": "Directory Functionality Tests Search Functionality Tests with POM TC005: Should type in employee name field using POM",
+                  "timedOut": null,
+                  "duration": 8219,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using POM method\ndirectoryPage.enterEmployeeName('Peter');\n// Verify using POM element\ndirectoryPage.elements.employeeNameInput().should('have.value', 'Peter');",
+                  "err": {},
+                  "uuid": "eb8f33ff-4d88-4dda-8a38-7e75b0d2602d",
+                  "parentUUID": "311de01e-c229-4c83-99b6-7ee861579dcc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC006: Should execute search and verify URL",
+                  "fullTitle": "Directory Functionality Tests Search Functionality Tests with POM TC006: Should execute search and verify URL",
+                  "timedOut": null,
+                  "duration": 11810,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "directoryPage.clickSearch();\ncy.wait(3000);\n// Verify still on directory page after search\ncy.url().should('include', 'directory/viewDirectory');",
+                  "err": {},
+                  "uuid": "f6dac0fa-0f58-4123-bb00-21f5bbeb562b",
+                  "parentUUID": "311de01e-c229-4c83-99b6-7ee861579dcc",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC007: Should reset search form using POM method",
+                  "fullTitle": "Directory Functionality Tests Search Functionality Tests with POM TC007: Should reset search form using POM method",
+                  "timedOut": null,
+                  "duration": 12327,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Enter data using POM\ndirectoryPage.enterEmployeeName('TestEmployee');\ncy.wait(1000);\n// Reset using POM method\ndirectoryPage.clickReset();\ncy.wait(2000);\ndirectoryPage.elements.employeeNameInput().clear();\ndirectoryPage.elements.employeeNameInput().should('have.value', '');",
+                  "err": {},
+                  "uuid": "d1c4b48a-6290-40a2-8fe9-a4bae693e592",
+                  "parentUUID": "311de01e-c229-4c83-99b6-7ee861579dcc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "eb8f33ff-4d88-4dda-8a38-7e75b0d2602d",
+                "f6dac0fa-0f58-4123-bb00-21f5bbeb562b",
+                "d1c4b48a-6290-40a2-8fe9-a4bae693e592"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 32356,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "7ae525fd-872a-46f9-87d6-cdbd1a9488e6",
+              "title": "API Intercept Tests",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC008: Should call directory API on search",
+                  "fullTitle": "Directory Functionality Tests API Intercept Tests TC008: Should call directory API on search",
+                  "timedOut": null,
+                  "duration": 8740,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('GET', '**/directory/employees**').as('directoryAPI');\ndirectoryPage.clickSearch();\ncy.wait('@directoryAPI', {\n  timeout: 10000\n}).then(interception => {\n  expect(interception.response.statusCode).to.eq(200);\n});",
+                  "err": {},
+                  "uuid": "1cccf036-cebd-4025-9b56-2b85308e01ad",
+                  "parentUUID": "7ae525fd-872a-46f9-87d6-cdbd1a9488e6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC009: Should verify API response structure with intercept",
+                  "fullTitle": "Directory Functionality Tests API Intercept Tests TC009: Should verify API response structure with intercept",
+                  "timedOut": null,
+                  "duration": 8502,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('GET', '**/directory/employees**').as('searchAPI');\ndirectoryPage.clickSearch();\ncy.wait('@searchAPI', {\n  timeout: 10000\n}).then(interception => {\n  expect(interception.response.statusCode).to.eq(200);\n  expect(interception.response.body).to.have.property('data');\n  cy.log('API Response:', interception.response.body);\n});",
+                  "err": {},
+                  "uuid": "1e35be92-60d6-4298-9c1b-86ad227fd2d7",
+                  "parentUUID": "7ae525fd-872a-46f9-87d6-cdbd1a9488e6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC010: Should verify API is called on each search action",
+                  "fullTitle": "Directory Functionality Tests API Intercept Tests TC010: Should verify API is called on each search action",
+                  "timedOut": null,
+                  "duration": 12676,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.intercept('GET', '**/directory/employees**').as('directoryAPI');\n// First search\ndirectoryPage.clickSearch();\ncy.wait('@directoryAPI').its('response.statusCode').should('eq', 200);\n// Reset\ndirectoryPage.clickReset();\ncy.wait(1000);\n// Second search\ndirectoryPage.clickSearch();\ncy.wait('@directoryAPI').its('response.statusCode').should('eq', 200);\n// Just verify both searches called API successfully\n// Don't check exact count (too brittle)\ncy.get('@directoryAPI.all').should('have.length.at.least', 2);",
+                  "err": {},
+                  "uuid": "eb8c5745-310a-4155-86c0-ce1afa46c6ad",
+                  "parentUUID": "7ae525fd-872a-46f9-87d6-cdbd1a9488e6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1cccf036-cebd-4025-9b56-2b85308e01ad",
+                "1e35be92-60d6-4298-9c1b-86ad227fd2d7",
+                "eb8c5745-310a-4155-86c0-ce1afa46c6ad"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 29918,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "11748fa7-91fe-41bb-8ed7-ae1c0f90eeb8",
+              "title": "Filter Interaction Tests with POM",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC011: Should interact with location dropdown using POM",
+                  "fullTitle": "Directory Functionality Tests Filter Interaction Tests with POM TC011: Should interact with location dropdown using POM",
+                  "timedOut": null,
+                  "duration": 7283,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using POM element\ndirectoryPage.elements.locationDropdown().should('be.visible').click();\ncy.wait(500);\n// Verify dropdown opened\ncy.get('body').then($body => {\n  if ($body.find('.oxd-select-dropdown').length > 0) {\n    cy.get('.oxd-select-dropdown').should('be.visible');\n  }\n});",
+                  "err": {},
+                  "uuid": "acf97149-ef83-4e09-a55c-10e03fd6ad12",
+                  "parentUUID": "11748fa7-91fe-41bb-8ed7-ae1c0f90eeb8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC012: Should interact with job title dropdown using POM",
+                  "fullTitle": "Directory Functionality Tests Filter Interaction Tests with POM TC012: Should interact with job title dropdown using POM",
+                  "timedOut": null,
+                  "duration": 7013,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using POM element\ndirectoryPage.elements.jobTitleDropdown().should('be.visible').click();\ncy.wait(500);\n// Verify dropdown opened\ncy.get('body').then($body => {\n  if ($body.find('.oxd-select-dropdown').length > 0) {\n    cy.get('.oxd-select-dropdown').should('be.visible');\n  }\n});",
+                  "err": {},
+                  "uuid": "2f29e589-28d1-424f-af11-5915ea020074",
+                  "parentUUID": "11748fa7-91fe-41bb-8ed7-ae1c0f90eeb8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "acf97149-ef83-4e09-a55c-10e03fd6ad12",
+                "2f29e589-28d1-424f-af11-5915ea020074"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 14296,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
