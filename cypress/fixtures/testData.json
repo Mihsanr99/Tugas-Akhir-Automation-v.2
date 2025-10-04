@@ -1,0 +1,59 @@
+{
+  "validCredentials": {
+    "username": "Admin",
+    "password": "admin123"
+  },
+  "invalidCredentials": {
+    "username": "InvalidUser",
+    "password": "InvalidPass123"
+  },
+  "testUsers": [
+    {
+      "username": "Admin",
+      "password": "admin123",
+      "role": "Admin"
+    }
+  ],
+  "forgotPassword": {
+    "validUsername": "Admin",
+    "invalidUsername": "NonExistentUser123",
+    "emptyUsername": ""
+  },
+  "employeeSearch": {
+    "validEmployees": [
+      "Peter",
+      "Linda",
+      "Paul"
+    ],
+    "invalidEmployee": "NonExistentEmployee12345"
+  },
+  "locations": [
+    "New York Sales Office",
+    "Texas R&D",
+    "Canadian Regional HQ"
+  ],
+  "jobTitles": [
+    "Chief Executive Officer",
+    "Chief Financial Officer",
+    "Chief Technical Officer",
+    "VP - Client Services",
+    "VP - Sales & Marketing"
+  ],
+  "errorMessages": {
+    "invalidCredentials": "Invalid credentials",
+    "requiredField": "Required",
+    "emptyFields": "Required"
+  },
+  "apiEndpoints": {
+    "login": "**/auth/validate",
+    "employeeList": "**/employees/action-summary",
+    "directory": "**/directory/employees**",
+    "resetPassword": "**/auth/requestResetPassword"
+  },
+  "waitTimes": {
+    "short": 500,
+    "medium": 1000,
+    "long": 2000,
+    "apiResponse": 3000
+  }
+}

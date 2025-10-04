@@ -1,0 +1,27 @@
+{
+  "name": "tugas-akhir-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:login": "cypress run --spec 'cypress/e2e/login.cy.js'",
+    "test:forgot": "cypress run --spec 'cypress/e2e/forgotPassword.cy.js'",
+    "test:directory": "cypress run --spec 'cypress/e2e/directory.cy.js'",
+    "test": "cypress run",
+  "report:merge": "npx mochawesome-merge cypress/reports/mochawesome/mochawesome_*.json --reportFilename cypress/reports/mochawesome/report.json",
+  "report:generate": "npx marge cypress/reports/mochawesome/report.json -f report -o cypress/reports/mochawesome",
+  "clean-report": "node clean-report.js",
+  "report": "node generate-report.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.3.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0"
+  }
+}
