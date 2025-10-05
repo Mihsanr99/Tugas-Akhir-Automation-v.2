@@ -18,7 +18,7 @@ Automasi testing untuk website OrangeHRM Demo menggunakan Cypress dengan impleme
 
 ## 📁 Struktur Project
 ```
-cypress-orangehrm-automation/
+TUGAS AKHIR AUTOMATION V.2/
 ├── cypress/
 │   ├── e2e/
 │   │   ├── login.cy.js           # 16 login tests

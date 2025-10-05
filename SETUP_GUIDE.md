@@ -40,7 +40,7 @@ npm run cypress:open
 ## 📂 Struktur Folder
 
 ```
-cypress-orangehrm-automation/
+TUGAS AKHIR AUTOMATION v.2/
 │
 ├── cypress/
 │   ├── e2e/                    # Test files

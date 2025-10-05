@@ -13,8 +13,6 @@
   "report:merge": "npx mochawesome-merge cypress/reports/mochawesome/mochawesome_*.json --reportFilename cypress/reports/mochawesome/report.json",
   "report:generate": "npx marge cypress/reports/mochawesome/report.json -f report -o cypress/reports/mochawesome",
   "clean-report": "node clean-report.js",
-  "report:merge-clean": "npx mochawesome-merge cypress/reports/mochawesome/mochawesome_*.json --reportFilename cypress/reports/mochawesome/report.json && node clean-report.js",
-"report:all": "npm run report:merge-clean && npm run report:generate",
   "report": "node generate-report.js"
   },
   "keywords": [],
